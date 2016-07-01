@@ -5,26 +5,6 @@ import { todoStore } from '../stores/todo_store'
 var observer = require('../mobx_inferno.js').observer
 
 @observer
-class Input extends Component {
-  constructor() {
-    super()
-    this.handleBlur =this.handleBlur.bind(this)
-  }
-
-  handleBlur(event) {
-    console.log(event, "change")
-    todoStore.setDesc(event.target.value)
-  }
-
-  render() {
-    const props = {
-      onBlur : this.handleBlur
-    }
-    return <input {...this.props} { ...props } />
-  }
-}
-
-@observer
 class Todo extends Component {
 
   getTodoDoneClass(todo) {
@@ -58,10 +38,6 @@ export default class Todos extends Component {
     todoStore.delete()
   }
 
-  blur() {
-    console.log('blur')
-  }
-
   render() {
       return ( 
         <div className="pure-form">
@@ -78,7 +54,7 @@ export default class Todos extends Component {
             <input  type='text' 
                     value={ todoStore.getDesc() } 
                     onChange={ (event) => todoStore.setDesc(event.target.value)} 
-                    onBlur={ this.handleBlur } />
+                    />
           </div>
           <button className="pure-button" onClick={ () => this.add() }> add </button>
           <button className="pure-button" onClick={ () => this.update() }> update first</button>
