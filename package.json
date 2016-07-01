@@ -1,13 +1,12 @@
 {
   "name": "inferno-mobx-starter",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --progress --colors --history-api-fallback --watch",
     "dist": "webpack -p --progress --colors",
-    "build": "webpack-dev-server -p --progress --colors  --history-api-fallback --watch",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test"
+    "build": "webpack-dev-server -p --progress --colors  --history-api-fallback --watch"
   },
   "author": "",
   "license": "MIT",
