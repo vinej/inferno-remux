@@ -23,15 +23,18 @@ class TodoStore {
     return this.todos
   }
 
-  update() {
-    this.todos[0].done= true
+  update(id, desc) {
+    const idx = this.todos.findIndex( (r) => r.id === id );
+    this.todos[idx].desc = desc
   }
 
-  delete() {
-    this.todos.splice(0,1)
+  delete(id) {
+    const idx = this.todos.findIndex( (r) => r.id === id );
+    this.todos.splice(idx,1);
   }
 
   add() {
+    if (this.desc === '') return
     this.todos.push( { id: this.count, desc: this.desc, done: false} );
     this.count = this.count + 1
     this.desc = ''

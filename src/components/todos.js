@@ -4,6 +4,25 @@ import { todoStore } from '../stores/todo_store'
 
 var observer = require('../mobx_inferno.js').observer
 
+// class Input extends Component {
+//   constructor() {
+//     super()
+//     this.handleBlur =this.handleBlur.bind(this)
+//   }
+
+//   handleBlur(event) {
+//     console.log(event, "blur")
+//   }
+
+//   render() {
+//     const props = {
+//       onBlur : this.handleBlur
+//     }
+
+//     return (<input { ...props } ></input>)
+//   }
+// }
+
 @observer
 class Todo extends Component {
 
@@ -20,6 +39,7 @@ class Todo extends Component {
                 <td>{this.props.todo.id}</td> 
                 <td onClick={ () => this.props.todo.done = !this.props.todo.done} 
                     style={ this.getTodoDoneClass(this.props.todo) }>{this.props.todo.desc}</td> 
+                <td onClick={ () => todoStore.delete(this.props.todo.id)}>del</td>
               </tr> );
   }
 }
@@ -30,21 +50,16 @@ export default class Todos extends Component {
     todoStore.add()
   }
 
-  update() {
-    todoStore.update()
-  }
-
-  delete() {
-    todoStore.delete()
-  }
-
   render() {
       return ( 
         <div className="pure-form">
           <table className='pure-table'>
             <thead >
-              <th>Id</th>
-              <th style={{ width: '130px'}}>Description</th>
+              <tr>
+                <th>Id</th>
+                <th style={{ width: '130px'}}>Description</th>
+                <th >del</th>
+              </tr>
             </thead>
             <tbody>
             { todoStore.get().map( (todo) => <Todo key={todo.id} todo={todo} /> ) }
@@ -57,8 +72,6 @@ export default class Todos extends Component {
                     />
           </div>
           <button className="pure-button" onClick={ () => this.add() }> add </button>
-          <button className="pure-button" onClick={ () => this.update() }> update first</button>
-          <button className="pure-button" onClick={ () => this.delete() }> delete first</button>
         </div>
       )
    }
