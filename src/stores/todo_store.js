@@ -18,7 +18,7 @@ class TodoStore {
   }
 
   delete() {
-    this.todos.splice(2,1)
+    this.todos.splice(0,1)
   }
 
   add() {
