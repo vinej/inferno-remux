@@ -36,7 +36,7 @@ class Todo extends Component {
   }
 
   render() {
-    return (  <tr > 
+    return (  <tr> 
                 <td>{this.props.todo.id}</td> 
                 <td onClick={ () => this.props.todo.done = !this.props.todo.done} 
                     style={ this.getTodoDoneClass(this.props.todo) }>{this.props.todo.desc}</td> 
@@ -81,8 +81,8 @@ export default class Todos extends Component {
                     onBlur={ this.handleBlur } />
           </div>
           <button className="pure-button" onClick={ () => this.add() }> add </button>
-          <button className="pure-button" onClick={ () => this.update() }> update </button>
-          <button className="pure-button" onClick={ () => this.delete() }> delete </button>
+          <button className="pure-button" onClick={ () => this.update() }> update first</button>
+          <button className="pure-button" onClick={ () => this.delete() }> delete first</button>
         </div>
       )
    }
