@@ -35,7 +35,7 @@ module.exports = {
   module: {
     loaders: [
     {
-      // JSX REACT transpiler
+      // JSX transpiler
       test: /\.js$/,
       include: [
         path.join(__dirname, 'src'),
