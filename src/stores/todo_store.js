@@ -2,30 +2,25 @@ import { observable } from 'mobx'
 
 class TodoStore {
   @observable todos = []
-  @observable desc
+  @observable _desc
 
   constructor() {
-    this.count = 3
-    this.desc = ''
+    this._count = 3
+    this._desc = ''
     this.todos.push( { id:1, desc: 'test', done: false} );
     this.todos.push( { id:2, desc: 'test2', done: true} );
   }
 
-  setDesc(desc) {
-    this.desc = desc
+  set desc(desc) {
+    this._desc = desc
   }
 
-  getDesc(desc) {
-    return this.desc
+  get desc() {
+    return this._desc
   }
 
-  get() {
+  get todos() {
     return this.todos
-  }
-
-  update(id, desc) {
-    const idx = this.todos.findIndex( (r) => r.id === id );
-    this.todos[idx].desc = desc
   }
 
   delete(id) {
@@ -35,9 +30,9 @@ class TodoStore {
 
   add() {
     if (this.desc === '') return
-    this.todos.push( { id: this.count, desc: this.desc, done: false} );
-    this.count = this.count + 1
-    this.desc = ''
+    this.todos.push( { id: this._count, desc: this._desc, done: false} );
+    this._count = this._count + 1
+    this._desc = ''
   }
 }
 export let todoStore = new TodoStore()

@@ -1,27 +1,6 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
-import { todoStore } from '../stores/todo_store'
-
-var observer = require('../mobx_inferno.js').observer
-
-// class Input extends Component {
-//   constructor() {
-//     super()
-//     this.handleBlur =this.handleBlur.bind(this)
-//   }
-
-//   handleBlur(event) {
-//     console.log(event, "blur")
-//   }
-
-//   render() {
-//     const props = {
-//       onBlur : this.handleBlur
-//     }
-
-//     return (<input { ...props } ></input>)
-//   }
-// }
+import { observer } from '../mobx_inferno.js'
 
 @observer
 class Todo extends Component {
@@ -39,18 +18,19 @@ class Todo extends Component {
                 <td>{this.props.todo.id}</td> 
                 <td onClick={ () => this.props.todo.done = !this.props.todo.done} 
                     style={ this.getTodoDoneClass(this.props.todo) }>{this.props.todo.desc}</td> 
-                <td onClick={ () => todoStore.delete(this.props.todo.id)}>del</td>
+                <td onClick={ () => this.props.store.delete(this.props.todo.id)}>del</td>
               </tr> );
   }
 }
 
 @observer
 export default class Todos extends Component {
-  add() {
-    todoStore.add()
+  constructor(props) {
+    super(props)
   }
 
   render() {
+      const store = this.props.store
       return ( 
         <div className="pure-form">
           <table className='pure-table'>
@@ -62,16 +42,16 @@ export default class Todos extends Component {
               </tr>
             </thead>
             <tbody>
-            { todoStore.get().map( (todo) => <Todo key={todo.id} todo={todo} /> ) }
+            { store.todos.map( (todo) => <Todo key={todo.id} todo={todo} store={store} /> ) }
             </tbody>
           </table>
           <div>
             <input  type='text' 
-                    value={ todoStore.getDesc() } 
-                    onChange={ (event) => todoStore.setDesc(event.target.value)} 
+                    value={ store.desc } 
+                    onChange={ (event) => store.desc = event.target.value } 
                     />
           </div>
-          <button className="pure-button" onClick={ () => this.add() }> add </button>
+          <button className="pure-button" onClick={ () => store.add() }> add </button>
         </div>
       )
    }
