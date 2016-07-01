@@ -15,7 +15,6 @@ class Todo extends Component {
   }
 
   render() {
-    console.log(this.props.todo)
     return (  <tr> 
                 <td>{this.props.todo.id}</td> 
                 <td onClick={ () => this.props.todo.done = !this.props.todo.done} 
