@@ -39,7 +39,6 @@ module.exports = {
       test: /\.js$/,
       include: [
         path.join(__dirname, 'src'),
-        path.join(__dirname, 'test')
       ],
       loader: 'babel'
     },
@@ -53,7 +52,7 @@ module.exports = {
     {test: /.(woff|woff2)$/, loader: "file-loader?prefix=font/&limit=5000"},
     {test: /.ttf(\?v=\d+.\d+.\d+)?$/, loader: "file-loader?limit=10000&mimetype=application/octet-stream"},
     {test: /.svg(\?v=\d+.\d+.\d+)?$/, loader: "file-loader?limit=10000&mimetype=image/svg+xml"},
-    {test: /\.(jpe?g|png|gif)$/i, loaders: ['file']},
+    {test: /\.(png|jpg|jpeg|gif)$/, loader: 'url-loader?limit=10000&name=./images/[name].[ext]' },
     {test: /\.ico$/, loader: 'file-loader?name=[name].[ext]'},
    ]
   },

@@ -1,7 +1,28 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 import { todoStore } from '../stores/todo_store'
+
 var observer = require('../mobx_inferno.js').observer
+
+@observer
+class Input extends Component {
+  constructor() {
+    super()
+    this.handleBlur =this.handleBlur.bind(this)
+  }
+
+  handleBlur(event) {
+    console.log(event, "change")
+    todoStore.setDesc(event.target.value)
+  }
+
+  render() {
+    const props = {
+      onBlur : this.handleBlur
+    }
+    return <input {...this.props} { ...props } />
+  }
+}
 
 @observer
 class Todo extends Component {
@@ -15,8 +36,7 @@ class Todo extends Component {
   }
 
   render() {
-    console.log(this.props.todo)
-    return (  <tr> 
+    return (  <tr > 
                 <td>{this.props.todo.id}</td> 
                 <td onClick={ () => this.props.todo.done = !this.props.todo.done} 
                     style={ this.getTodoDoneClass(this.props.todo) }>{this.props.todo.desc}</td> 
@@ -38,21 +58,31 @@ export default class Todos extends Component {
     todoStore.delete()
   }
 
+  blur() {
+    console.log('blur')
+  }
+
   render() {
       return ( 
-        <div>
-          <table className='pure-table' >
+        <div className="pure-form">
+          <table className='pure-table'>
             <thead >
               <th>Id</th>
-              <th>Description</th>
+              <th style={{ width: '130px'}}>Description</th>
             </thead>
             <tbody>
-            { todoStore.get().map( (todo) =>(<Todo key={todo.id} todo={todo} />)) }
+            { todoStore.get().map( (todo) => <Todo key={todo.id} todo={todo} /> ) }
             </tbody>
           </table>
-          <button onClick={ () => this.add() }> add </button>
-          <button onClick={ () => this.update() }> update </button>
-          <button onClick={ () => this.delete() }> delete </button>
+          <div>
+            <input  type='text' 
+                    value={ todoStore.getDesc() } 
+                    onChange={ (event) => todoStore.setDesc(event.target.value)} 
+                    onBlur={ this.handleBlur } />
+          </div>
+          <button className="pure-button" onClick={ () => this.add() }> add </button>
+          <button className="pure-button" onClick={ () => this.update() }> update </button>
+          <button className="pure-button" onClick={ () => this.delete() }> delete </button>
         </div>
       )
    }
