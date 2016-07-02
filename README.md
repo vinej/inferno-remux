@@ -5,7 +5,7 @@ Welcome to Inferno Mobx ReMux Starter
 The boilerplate give you a minimum example to use Inferno with Mobx with the ES6 syntax
 
 Also, you have the minimum implementation of the 'ReMux' flux pattern
-    ReMux stand for : **Re**solver **M**obx Fl**ux** pattern
+* ReMux stand for : **Re**solver **M**obx Fl**ux** pattern
 
 With 'ReMux' you have a very simple way to implement the following pattern
 * component => action => resolver => store => component
