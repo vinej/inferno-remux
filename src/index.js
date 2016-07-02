@@ -1,15 +1,21 @@
 import Inferno from 'inferno'
 import InfernoDOM from 'inferno-dom'
+import { Route, Router, browserHistory } from 'inferno-router'
 import Todos from './components/todos'
-import { Header } from './components/header'
-import { Footer } from './components/footer'
+import App from './components/app'
+import { Welcome } from './components/welcome'
 import { todoStore } from './stores/todo_store'
+
 require('./style.css')
 
+var todos = () => <Todos store={ todoStore } />
+
 InfernoDOM.render(
-  <div>
-    <Header />
-    <Todos store={todoStore} />
-    <Footer />
-  </div>, document.getElementById("app")
+  (
+    <Router history={browserHistory} component={ App } hashbang="true">
+      <Route path="/" component={ Welcome } />
+      <Route path="/todos" component={ todos } />
+      <Route path="/welcome" component={ Welcome } />
+    </Router>
+  ), document.getElementById("app")
 )
