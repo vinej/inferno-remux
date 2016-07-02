@@ -12,6 +12,7 @@ class TodoStore {
   }
 
   set desc(desc) {
+    console.log('set')
     this._desc = desc
   }
 
@@ -21,6 +22,10 @@ class TodoStore {
 
   get todos() {
     return this.todos
+  }
+
+  setDesc(desc) {
+    this._desc = desc
   }
 
   delete(id) {

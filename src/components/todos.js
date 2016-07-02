@@ -1,6 +1,8 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 import { observer } from '../mobx_inferno.js'
+import { dispatch } from '../resolvers/dispatcher'
+import { todoAdd, todoDelete, todoSetDesc } from '../actions/todo_actions'
 
 @observer
 class Todo extends Component {
@@ -18,7 +20,7 @@ class Todo extends Component {
                 <td>{this.props.todo.id}</td> 
                 <td onClick={ () => this.props.todo.done = !this.props.todo.done} 
                     style={ this.getTodoDoneClass(this.props.todo) }>{this.props.todo.desc}</td> 
-                <td onClick={ () => this.props.store.delete(this.props.todo.id)}>del</td>
+                <td onClick={ () => dispatch(todoDelete(this.props.todo.id))}>del</td>
               </tr> );
   }
 }
@@ -42,16 +44,16 @@ export default class Todos extends Component {
               </tr>
             </thead>
             <tbody>
-            { store.todos.map( (todo) => <Todo key={todo.id} todo={todo} store={store} /> ) }
+            { store.todos.map( (todo) => <Todo key={todo.id} todo={todo} /> ) }
             </tbody>
           </table>
           <div>
             <input  type='text' 
                     value={ store.desc } 
-                    onChange={ (event) => store.desc = event.target.value } 
+                    onChange={ (event) => dispatch(todoSetDesc(event.target.value)) } 
                     />
           </div>
-          <button className="pure-button" onClick={ () => store.add() }> add </button>
+          <button className="pure-button" onClick={ () => dispatch(todoAdd()) }> add </button>
         </div>
       )
    }
