@@ -23,6 +23,8 @@ For a more complete example see: https://github.com/vinej/react-portal
   * npm install
   * npm start
 
+Inferno : https://github.com/trueadm/inferno
+
 JYV
 
 
