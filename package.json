@@ -1,6 +1,6 @@
 {
-  "name": "inferno-mobx-starter",
-  "version": "0.1.1",
+  "name": "inferno-mobx-remux-starter",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "classnames": "^2.2.5",
     "inferno": "^0.7.13",
     "inferno-component": "^0.7.13",
     "inferno-create-class": "^0.7.13",
@@ -24,7 +23,7 @@
   "devDependencies": {
     "babel-core": "^6.9.1",
     "babel-loader": "^6.2.4",
-    "babel-plugin-inferno": "^0.7.2",
+    "babel-plugin-inferno": "^0.7.3",
     "babel-plugin-syntax-jsx": "^6.8.0",
     "babel-plugin-syntax-object-rest-spread": "^6.8.0",
     "babel-plugin-transform-async-to-generator": "^6.8.0",

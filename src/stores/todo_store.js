@@ -2,9 +2,10 @@ import { observable } from 'mobx'
 
 class TodoStore {
   @observable todos = []
-  @observable _desc
+  @observable _desc = ''
 
   constructor() {
+    this.todos = []
     this._count = 3
     this._desc = ''
     this.todos.push( { id:1, desc: 'test', done: false} );
@@ -12,7 +13,6 @@ class TodoStore {
   }
 
   set desc(desc) {
-    console.log('set')
     this._desc = desc
   }
 
