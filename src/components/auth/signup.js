@@ -89,6 +89,7 @@ export default class SignUp extends Component {
             <button className='pure-button' onClick={ this.handleSend }>SignUp</button>
           </div>
           <div style={{ color : 'red'}}>{ this.error || '' }</div>
+          { this.error || '' }
         </fielset>
       </form>
     )
