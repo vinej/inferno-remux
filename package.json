@@ -11,13 +11,14 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "inferno": "^0.7.13",
-    "inferno-component": "^0.7.13",
-    "inferno-create-class": "^0.7.13",
-    "inferno-create-element": "^0.7.13",
-    "inferno-dom": "^0.7.13",
-    "inferno-router": "^0.7.13",
-    "inferno-server": "^0.7.13",
+    "axios": "^0.12.0",
+    "inferno": "^0.7.14",
+    "inferno-component": "^0.7.14",
+    "inferno-create-class": "^0.7.14",
+    "inferno-create-element": "^0.7.14",
+    "inferno-dom": "^0.7.14",
+    "inferno-router": "^0.7.14",
+    "inferno-server": "^0.7.14",
     "mobx": "^2.3.3"
   },
   "devDependencies": {

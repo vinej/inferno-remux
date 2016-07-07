@@ -1,16 +1,22 @@
+import Inferno from 'inferno';
+import Component from 'inferno-component';
 import { observable } from 'mobx'
-import { todoActions } from '../actions/todo_actions'
+import TodoActions from '../actions/todo_actions'
 
-class TodoStore {
+// export const todoShape = {
+//   id : React.PropTypes.number,
+//   desc : React.PropTypes.string,
+//   done : React.PropTypes.bool
+// }
+
+export default class TodoStore {
   @observable todos = []
-  @observable desc = ''
+  @observable desc
 
   constructor() {
-    this.on = todoActions
+    this.on = TodoActions
     this._count = 3
-
-    this.todos.push( { id:1, desc: 'test', done: false} );
-    this.todos.push( { id:2, desc: 'test2', done: true} );
+    this.desc = ''
   }
 
   set desc(desc) {
@@ -25,11 +31,15 @@ class TodoStore {
     return this.todos
   }
 
+  setAll(todos) {
+    this.todos = todos
+  }
+
   setDesc(desc) {
     this.desc = desc
   }
 
-  setDone( { todo, done } ) {
+  setDone( {todo, done }) {
     todo.done = done
   }
 

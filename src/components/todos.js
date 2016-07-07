@@ -1,9 +1,15 @@
 import Inferno from 'inferno';
 import Component from 'inferno-component';
 import { observer } from '../mobx_inferno.js'
+import { observable } from 'mobx'
+import TodoStore, { todoShape } from '../stores/todo_store'
 
 @observer
 class Todo extends Component {
+  // static propTypes = {
+  //   todo:  React.PropTypes.shape(todoShape), 
+  //   store: React.PropTypes.instanceOf(TodoStore)
+  // }
 
   getTodoDoneClass(todo) {
     if (todo.done) {
@@ -12,7 +18,6 @@ class Todo extends Component {
       return { textDecoration: "none", color : 'black'}
     }
   }
-
   render() {
     const on = this.props.store.on
     const todo = this.props.todo
@@ -27,9 +32,21 @@ class Todo extends Component {
 
 @observer
 export default class Todos extends Component {
+  @observable _desc = ''
+
   constructor(props) {
     super(props)
+    this.desc= ''
   }
+
+  componentWillMount() {
+    const on = this.props.store.on
+    on.todoGetAll()
+  }
+
+  // static propTypes = {
+  //   store: React.PropTypes.instanceOf(TodoStore),
+  // }
 
   render() {
       const store = this.props.store
@@ -50,10 +67,11 @@ export default class Todos extends Component {
           </table>
           <div>
             <input    type='text'  
-                      value={ store.desc }
-                      onChange= { (event) => on.todoSetDesc(event.target.value) }/>
+                      value = { this._desc }
+                      onChange = { (event) => this._desc = event.target.value }
+                      onBlur= { (event) => on.todoSetDesc(event.target.value) }/>
           </div>
-          <button onClick={ () => on.todoAdd() }> add </button>
+          <button className="pure-button" onClick={ () => { on.todoAdd(); this._desc= ''} }> add </button>
         </div>
       )
    }
