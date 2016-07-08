@@ -1,8 +1,5 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
 import { observable, action, transaction } from 'mobx'
 import AuthActions from '../actions/auth_actions'
-import { Router } from 'inferno-router'
 
 export default class AuthStore {
   @observable email = ""

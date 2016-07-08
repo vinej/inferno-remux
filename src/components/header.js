@@ -1,10 +1,10 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
+import Inferno from 'inferno'
+import React from 'react';
 import { Link } from 'inferno-router'
-import { observer } from '../mobx_inferno.js'
+import { observer } from "mobx-react";
 
 @observer
-export default class Header extends Component {
+export default class Header extends React.Component {
   renderSignInUp(authenticated) {
     if (authenticated === false) {
       return [ <span key='1'><Link to='/signin' >SignIn</Link></span>,

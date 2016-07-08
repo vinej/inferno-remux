@@ -40,7 +40,12 @@ module.exports = {
   output: {
     filename: 'bundle.js',
   },
-   
+  resolve: {
+    alias: {
+      'react': 'inferno-compat',
+      'react-dom': 'inferno-compat'
+    }
+  },
   module: {
     loaders: [
     {

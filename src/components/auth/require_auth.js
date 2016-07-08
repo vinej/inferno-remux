@@ -1,15 +1,14 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
-import { observer } from "../../mobx_inferno.js";
+import Inferno from 'inferno'
+import React from 'react';
+import { observer } from "mobx-react";
 import { authStore } from '../../stores/auth_store';
 
 @observer
 export default function(ComposedComponent) {
-  class Authentication extends Component {
-
-    // static contextTypes = {
-    //   router: React.PropTypes.object
-    // }
+  class Authentication extends React.Component {
+    static contextTypes = {
+      router: React.PropTypes.object
+    }
 
     componentWillMount() {
       if (!authStore.authenticated) {

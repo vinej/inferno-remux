@@ -1,6 +1,6 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
-import { observer } from '../mobx_inferno.js'
+import Inferno from 'inferno'
+import React from 'react';
+import { observer } from "mobx-react";
 import { dispatch } from '../resolvers/dispatcher'
 import { todoAdd, todoDelete, todoSetDesc } from '../actions/todo_actions'
 import Button from '../ui/Button' 
@@ -8,7 +8,7 @@ import Checkbox from '../ui/Checkbox'
 import CheckboxGroup from '../ui/CheckboxGroup' 
 import Filter from '../ui/Filter' 
 
-export default class Form extends Component {
+export default class Form extends React.Component {
   constructor(props) {
     super(props)
   }

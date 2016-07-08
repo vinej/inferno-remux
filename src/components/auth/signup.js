@@ -1,12 +1,12 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
-import { observer } from "../../mobx_inferno.js";
+import Inferno from 'inferno'
+import React from 'react';
+import { observer } from "mobx-react";
 import { observable } from 'mobx'
 import AuthActions from '../../actions/auth_actions'
 import AuthStore from '../../stores/auth_store'
 
 @observer
-export default class SignUp extends Component {
+export default class SignUp extends React.Component {
   @observable email = ''
   @observable password = ''
   @observable passwordConfirm = ''

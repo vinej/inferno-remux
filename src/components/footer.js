@@ -1,5 +1,5 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
+import Inferno from 'inferno'
+import React from 'react';
 
 export let Footer = () => 
   <div className="pure-g footer">

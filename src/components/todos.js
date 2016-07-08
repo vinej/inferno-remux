@@ -1,15 +1,15 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
-import { observer } from '../mobx_inferno.js'
+import Inferno from 'inferno'
+import React from 'react';
 import { observable } from 'mobx'
+import { observer } from "mobx-react";
 import TodoStore, { todoShape } from '../stores/todo_store'
 
 @observer
-class Todo extends Component {
-  // static propTypes = {
-  //   todo:  React.PropTypes.shape(todoShape), 
-  //   store: React.PropTypes.instanceOf(TodoStore)
-  // }
+class Todo extends React.Component {
+  static propTypes = {
+     todo:  React.PropTypes.shape(todoShape), 
+     store: React.PropTypes.instanceOf(TodoStore)
+  }
 
   getTodoDoneClass(todo) {
     if (todo.done) {
@@ -31,7 +31,7 @@ class Todo extends Component {
 }
 
 @observer
-export default class Todos extends Component {
+export default class Todos extends React.Component {
   @observable _desc = ''
 
   constructor(props) {
@@ -44,9 +44,9 @@ export default class Todos extends Component {
     on.todoGetAll()
   }
 
-  // static propTypes = {
-  //   store: React.PropTypes.instanceOf(TodoStore),
-  // }
+  static propTypes = {
+    store: React.PropTypes.instanceOf(TodoStore),
+  }
 
   render() {
       const store = this.props.store

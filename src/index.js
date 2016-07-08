@@ -1,6 +1,6 @@
-import Inferno from 'inferno';
-import InfernoDOM from 'inferno-dom';
-import Component from 'inferno-component';
+import Inferno from 'inferno'
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { Route, Router, browserHistory } from 'inferno-router'
 import Todos from './components/todos'
 import App from './components/app'
@@ -24,7 +24,7 @@ AuthActions.authCheckToken()
 
 var todos = () => <Todos store={ todoStore } />
 
-InfernoDOM.render(
+ReactDOM.render(
   (
     <Router history={browserHistory} component={ App } hashbang="true">
       <Route path="/welcome" component={ Welcome } />

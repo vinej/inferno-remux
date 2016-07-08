@@ -1,8 +1,8 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
+import Inferno from 'inferno'
+import React from 'react';
 import AuthActions from '../../actions/auth_actions'
 
-export default class SignOut extends Component {
+export default class SignOut extends React.Component {
   componentWillMount() {
     AuthActions.authSignOut()
   }

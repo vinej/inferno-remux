@@ -1,13 +1,12 @@
-import Inferno from 'inferno';
-import Component from 'inferno-component';
+import React from 'react';
 import { observable } from 'mobx'
 import TodoActions from '../actions/todo_actions'
 
-// export const todoShape = {
-//   id : React.PropTypes.number,
-//   desc : React.PropTypes.string,
-//   done : React.PropTypes.bool
-// }
+export const todoShape = {
+   id : React.PropTypes.number,
+   desc : React.PropTypes.string,
+   done : React.PropTypes.bool
+}
 
 export default class TodoStore {
   @observable todos = []
