@@ -30,6 +30,7 @@ var signup = () => <SignUp store={ appState.signInUp } />
 ReactDOM.render(
   (
     <Router history={browserHistory} component={ App } hashbang="true">
+      <Route path="/" component={ Welcome } />
       <Route path="/welcome" component={ Welcome } />
       <Route path="/todos" component={ RequireAuth(todos,todoStore) } />
       <Route path="/signin" component={ signin } />
