@@ -43,8 +43,7 @@ module.exports = {
   resolve: {
     alias: {
       'react': 'inferno-compat',
-      'react-dom': 'inferno-compat',
-      'inferno' : 'inferno-compat'
+      'react-dom': 'inferno-compat'
     }
   },
   module: {
