@@ -1,8 +1,8 @@
-# inferno-mobx-remux-starter
+# inferno-remux
 
-Welcome to Inferno Mobx ReMux Starter
+Welcome to Inferno-Remux
 
-The boilerplate give you a minimum example to use Inferno with Mobx with the ES6 syntax
+The boilerplate give you a minimum example to use Inferno with Mobx, Mobx-React with the ES6 syntax with the compatibily packgage 'inferno-compat'
 
 Also, you have the minimum implementation of the 'ReMux' flux pattern
 * ReMux stand for : **Re**act **M**obx Fl**ux** pattern

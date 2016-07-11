@@ -10,11 +10,13 @@ export default function(ComposedComponent, store) {
 
     componentWillMount() {
       if (!store.authenticated) {
+        window.location.assign('#!/')
       }
     }
 
     componentWillUpdate(nextProps) {
       if (!store.authenticated) {
+        window.location.assign('#!/')
       }
     }
 
