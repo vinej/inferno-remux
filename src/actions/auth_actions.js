@@ -1,5 +1,5 @@
-import AuthService from '../services/auth_service';
 import { dispatch } from '../resolvers/dispatcher'
+import AuthService from '../services/auth_service';
 
 export let authTypes = {
   authSetAuthorizations   : 'auth_SetAuthorizations',
@@ -16,7 +16,7 @@ const t = authTypes
 export default class AuthActions {
   static authCheckToken() {
     dispatch( {
-      type: t.authCheckToken,
+      type: t.authCheckToken
     })
   }
 
@@ -25,7 +25,7 @@ export default class AuthActions {
       type: t.authSetAuthorizations,
       payload: function() {
         const service = AuthService.getInstance()
-        service.setAuthorizations(AuthActions._authSetAuthorizations , AuthActions.authError);
+        service.setAuthorizations(AuthActions._authSetAuthorizations , AuthActions.authError)
       }
     })
   }
@@ -89,4 +89,3 @@ export default class AuthActions {
     })
   }
 }
-

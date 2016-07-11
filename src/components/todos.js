@@ -1,14 +1,17 @@
-import Inferno from 'inferno'
+import Inferno from 'inferno';
 import React from 'react';
-import { observable } from 'mobx'
-import { observer } from "mobx-react";
-import TodoStore, { todoShape } from '../stores/todo_store'
+import { observer } from 'mobx-react'
+
+const todoShape = {
+  id : React.PropTypes.number,
+  desc : React.PropTypes.string,
+  done : React.PropTypes.bool
+}
 
 @observer
 class Todo extends React.Component {
   static propTypes = {
-     todo:  React.PropTypes.shape(todoShape), 
-     store: React.PropTypes.instanceOf(TodoStore)
+    todo:  React.PropTypes.shape(todoShape)
   }
 
   getTodoDoneClass(todo) {
@@ -18,6 +21,7 @@ class Todo extends React.Component {
       return { textDecoration: "none", color : 'black'}
     }
   }
+  
   render() {
     const on = this.props.store.on
     const todo = this.props.todo
@@ -32,20 +36,14 @@ class Todo extends React.Component {
 
 @observer
 export default class Todos extends React.Component {
-  @observable _desc = ''
-
   constructor(props) {
     super(props)
-    this.desc= ''
   }
 
   componentWillMount() {
     const on = this.props.store.on
+    this.props.store.desc = ''
     on.todoGetAll()
-  }
-
-  static propTypes = {
-    store: React.PropTypes.instanceOf(TodoStore),
   }
 
   render() {
@@ -67,11 +65,11 @@ export default class Todos extends React.Component {
           </table>
           <div>
             <input    type='text'  
-                      value = { this._desc }
-                      onChange = { (event) => this._desc = event.target.value }
+                      value = { store.desc }
+                      onChange = { (event) => store.desc = event.target.value }
                       onBlur= { (event) => on.todoSetDesc(event.target.value) }/>
           </div>
-          <button className="pure-button" onClick={ () => { on.todoAdd(); this._desc= ''} }> add </button>
+          <button className="pure-button" onClick={ () => { on.todoAdd(); store.desc = ''} }> add </button>
         </div>
       )
    }

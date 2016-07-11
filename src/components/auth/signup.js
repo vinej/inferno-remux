@@ -1,17 +1,10 @@
-import Inferno from 'inferno'
-import React from 'react';
-import { observer } from "mobx-react";
-import { observable } from 'mobx'
+import Inferno from 'inferno';
+import React from 'react'
+import { observer } from "mobx-react"
 import AuthActions from '../../actions/auth_actions'
-import AuthStore from '../../stores/auth_store'
 
 @observer
 export default class SignUp extends React.Component {
-  @observable email = ''
-  @observable password = ''
-  @observable passwordConfirm = ''
-  @observable name = ''
-  @observable error = ''
 
   constructor(props) {
     super(props)
@@ -20,39 +13,42 @@ export default class SignUp extends React.Component {
   }
 
   handleSend(event) {
+    const store = this.props.store
     event.preventDefault()
     if (this.validate() === true) {
-      AuthActions.authSignUp(this.email,this.password,this.name)      
+      AuthActions.authSignUp(store.email, store.password, store.name)      
     }
   }
 
   validate() {
-    this.error = ''
+    const store = this.props.store
+    store.error = ''
     let isValidate = true
-    if ( this.email === '') {
-      this.error = this.error + ': Email is required!'
+    if ( store.email === '') {
+      store.error = 'Email is required!'
       isValidate = false
     }
-    if ( this.password === '') {
-      this.error = this.error + ': Password is required!'
+    if ( store.password === '') {
+      store.error = store.state + (isValidate === false ?' : ' : '') + 'Password is required!'
       isValidate = false
     }
-    if ( this.passwordConfirm === '') {
-      this.error = this.error + ': Password confirm is required!'
+    if ( store.confirmPassword === '') {
+      store.error = store.error + (isValidate === false ?' : ' : '') + 'Password confirm is required!'
       isValidate = false
     }
-    if ( this.password !== this.passwordConfirm) {
-      this.error = this.error + ': Both password are not equal!'
+    if ( store.password !== store.confirmPassword) {
+      store.error = store.error + (isValidate === false ?' : ' : '') + 'Both password are not equal!'
       isValidate = false
     }
-    if ( this.name === '') {
-      this.error = this.error + ': Name is required!'
+    if ( store.name === '') {
+      store.error = store.error + (isValidate === false ?' : ' : '') + 'Name is required!'
       isValidate = false
     }
     return isValidate
   }
 
   render() {
+    const store = this.props.store
     return (
       <form className='pure-form pure-form pure-form-stacked'>
         <fielset>
@@ -60,41 +56,37 @@ export default class SignUp extends React.Component {
           <div>
             <label required>Email</label>
             <input name="email" 
-                   value={ this.email }
-                   onChange={(e) => this.email = e.target.value}/>
+                   value={ store.email }
+                   onChange={(e) => store.email = e.target.value}/>
           </div>
 
           <div>
             <label required>Password</label>
             <input name="password" 
                     type="password" 
-                    value={this.password}
-                    onChange={(e) => this.password = e.target.value} />
+                    value={ store.password }
+                    onChange={(e) => store.password = e.target.value} />
           </div>
           <div>
             <label required>Password Confirm</label>
             <input name="passwordConfirm" 
                     type="password" 
-                    value={this.passwordConfirm}
-                    onChange={(e) => this.passwordConfirm = e.target.value} />
+                    value={ store.confirmPassword }
+                    onChange={(e) => store.confirmPassword = e.target.value} />
           </div>
           <div>
             <label required>Name</label>
             <input name="name" 
                     type="text" 
-                    value={this.name}
-                    onChange={(e) => this.name = e.target.value} />
+                    value={store.name}
+                    onChange={(e) => store.name = e.target.value} />
           </div>
           <div>
             <button className='pure-button' onClick={ this.handleSend }>SignUp</button>
           </div>
-          <div style={{ color : 'red'}}>{ this.error || '' }</div>
-          { this.error || '' }
+          <div style={{ color : 'red'}}>{ store.error || '' }</div>
         </fielset>
       </form>
     )
   }
 }
-
-
-

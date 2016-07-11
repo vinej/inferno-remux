@@ -1,5 +1,5 @@
-import Inferno from 'inferno'
-import React from 'react';
+import Inferno from 'inferno';
+import React from 'react'
 
 export let Welcome = () => 
   <div style={{ backgroundColor: '#E2F0F4' }}>

@@ -1,7 +1,7 @@
-import Inferno from 'inferno'
-import React from 'react';
-import { Link } from 'inferno-router'
+import Inferno from 'inferno';
+import React from 'react'
 import { observer } from "mobx-react";
+import { Link } from 'inferno-router'
 
 @observer
 export default class Header extends React.Component {
@@ -16,6 +16,7 @@ export default class Header extends React.Component {
   }
 
   render() {
+    const store = this.props.store
     return (
       <div className="pure-g header">
           <div className="pure-u-1-4">
@@ -23,7 +24,7 @@ export default class Header extends React.Component {
           </div>
           <div className="pure-u-3-4" >
             <span key='5'><Link to='/welcome' >Welcome</Link></span>
-            { this.renderSignInUp(this.props.store.authenticated) }
+            { this.renderSignInUp(store.isAuthenticated()) }
             <div
                 onClick= { () => alert('ReMux example : https://github.com/vinej/react-portal') } 
                 style={{float: 'right'}}>?</div>
