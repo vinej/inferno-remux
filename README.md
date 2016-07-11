@@ -1,6 +1,6 @@
 # inferno-remux
 
-Welcome to Inferno Mobx ReMux Starter
+Welcome to Inferno-Remux
 
 The boilerplate give you a minimum example to use Inferno with Mobx, Mobx-React with the ES6 syntax with the compatibily packgage 'inferno-compat'
 
