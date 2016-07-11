@@ -1,4 +1,4 @@
-# inferno-mobx-remux-starter
+# inferno-remux
 
 Welcome to Inferno Mobx ReMux Starter
 
