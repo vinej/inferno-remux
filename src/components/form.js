@@ -1,4 +1,3 @@
-import Inferno from 'inferno'
 import React from 'react';
 import { observer } from "mobx-react";
 import { dispatch } from '../resolvers/dispatcher'

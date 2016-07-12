@@ -1,4 +1,3 @@
-import Inferno from 'inferno';
 import React from 'react'
 
 export let Footer = () => 

@@ -1,4 +1,3 @@
-import Inferno from 'inferno';
 import React from 'react';
 import AuthActions from '../../actions/auth_actions'
 

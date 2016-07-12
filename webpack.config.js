@@ -10,6 +10,11 @@ function getPlugins() {
   // Always expose NODE_ENV to webpack, you can now use `process.env.NODE_ENV`
   // inside your code for any environment checks; UglifyJS will automatically
   // drop any unreachable code.
+  plugins.push(
+    new webpack.ProvidePlugin({
+        'Inferno': 'react'
+    })
+  );
 
   // Conditionally add plugins for Production builds.
   if (isProd === true) {
