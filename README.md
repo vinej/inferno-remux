@@ -1,8 +1,8 @@
 # inferno-remux
 
-Welcome to Inferno-Remux
+Welcome to inferno-remux
 
-The boilerplate give you a minimum example to use Inferno with Mobx, Mobx-React with the ES6 syntax with the compatibily packgage 'inferno-compat'
+This boilerplate give you a minimum example to use Inferno with Mobx, Mobx-React with the Inferno compatibily packgage 'inferno-compat'
 
 Also, you have the minimum implementation of the 'ReMux' flux pattern
 * ReMux stand for : **Re**act **M**obx Fl**ux** pattern
@@ -14,7 +14,7 @@ With 'ReMux' you have a very simple way to implement the following pattern
  * components dispatch actions to apply modifications to the store (the state)
  * resolvers resolve actions and call stores
  * stores are observable with the Mobx @observable decorator
- * Mobx refresh the components with the @observer decorator
+ * Mobx refresh the components with the Mobx-React @observer decorator
  * resolvers could be also middlewares to do something with the action before/after calling the stores
 * TRY IT, IT'S VERY SIMPLE THIS WAY
 
