@@ -1,12 +1,11 @@
-import Inferno from 'inferno';
-import { browserHistory} from 'inferno-router'
+import { stateNavigator } from './navigation'
 
 export default class RefRoutes {
   static routeTodo() {
-    window.location.assign('/#!/todos')
+    stateNavigator.navigate('todos')
   }
 
   static routeSignIn() {
-    window.location.assign('/#!/signin')
+    stateNavigator.navigate('signin')
   }
 }

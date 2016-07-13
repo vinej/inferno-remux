@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { observer } from "mobx-react"
 import AuthActions from '../../actions/auth_actions'
 
 @observer
-export default class SignUp extends React.Component {
+export default class SignUp extends Component {
 
   constructor(props) {
     super(props)

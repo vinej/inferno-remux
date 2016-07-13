@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { observer } from 'mobx-react'
 
 const todoShape = {
@@ -8,7 +8,7 @@ const todoShape = {
 }
 
 @observer
-class Todo extends React.Component {
+class Todo extends Component {
   static propTypes = {
     todo:  React.PropTypes.shape(todoShape)
   }
@@ -34,7 +34,7 @@ class Todo extends React.Component {
 }
 
 @observer
-export default class Todos extends React.Component {
+export default class Todos extends Component {
   constructor(props) {
     super(props)
   }

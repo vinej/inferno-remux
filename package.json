@@ -1,6 +1,6 @@
 {
   "name": "inferno-remux",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,9 @@
     "inferno-compat": "^0.7.20",
     "inferno-router": "^0.7.20",
     "mobx": "^2.3.3",
-    "mobx-react": "^3.4.0"
+    "mobx-react": "^3.4.0",
+    "navigation": "^2.0.0",
+    "navigation-react": "^2.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.9.1",

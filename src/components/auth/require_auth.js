@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default function(ComposedComponent, store) {
-  class Authentication extends React.Component {
+export default function(ComposedComponent, store, stateNavigator) {
+  class Authentication extends Component {
 
     static contextTypes = {
       router: React.PropTypes.object
     }
 
     componentWillMount() {
-      if (!store.authenticated) {
-        //window.location.assign('#!/')
+      if (!store.isAuthenticated()) {
+        stateNavigator.navigate('signin');
       }
     }
 
     componentWillUpdate(nextProps) {
-      if (!store.authenticated) {
-        //window.location.assign('#!/')
+      if (!store.isAuthenticated()) {
+        stateNavigator.navigate('signin');
       }
     }
 
