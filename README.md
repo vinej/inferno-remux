@@ -2,10 +2,10 @@
 
 Welcome to inferno-remux
 
-This boilerplate give you a minimum example to use Inferno with Mobx, Mobx-React with the Inferno compatibily packgage 'inferno-compat'
+NOTE: this boilerplate use the 'inferno-compat' package, then even if you see imports of React, the code runs with Inferno. See the webpack.config.js and the package.json files.
 
-Also, you have the minimum implementation of the 'ReMux' flux pattern
-* ReMux stand for : **Re**act **M**obx Fl**ux** pattern
+This boilerplate give you a minimum example to use Inferno with Mobx, Mobx-React and a minimum implementation of the 'ReMux' flux pattern
+* ReMux stand for : **Re**act **M**obx Fl**ux** pattern. 
 
 With 'ReMux' you have a very simple way to implement the following pattern
 * component => action => resolver => store => component
@@ -16,6 +16,7 @@ With 'ReMux' you have a very simple way to implement the following pattern
  * stores are observable with the Mobx @observable decorator
  * Mobx refresh the components with the Mobx-React @observer decorator
  * resolvers could be also middlewares to do something with the action before/after calling the stores
+ * the routing is also using the dispach pattern
 * TRY IT, IT'S VERY SIMPLE THIS WAY
 
 For a more complete example see: https://github.com/vinej/react-portal
