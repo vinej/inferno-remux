@@ -4,10 +4,15 @@ import { observable } from 'mobx'
 export let appState = {
   signInUp : {
     @observable email : '',
+    @observable emailError : '',
     @observable password : '',
-    @observable name : 'jyv',
+    @observable passwordError : '',
+    @observable name : '',
+    @observable nameError : '',
     @observable confirmPassword : '',
-    @observable error : ''
+    @observable confirmPasswordError : '',
+    @observable error : '',
+    @observable isError : false,
   },
   user : {
     @observable name : '',
@@ -24,5 +29,8 @@ export let appState = {
   routes : {
     @observable routes : [],
     currentRoute : -1
+  },
+  wait: {
+    @observable isWaiting : false
   }
 }
